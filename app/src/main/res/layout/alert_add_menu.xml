@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="@string/add_menu_title"
+        android:textSize="14sp" />
+
+    <View style="@style/divider" />
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="@string/note_type_text"
+        android:textSize="16sp" />
+
+    <View style="@style/divider" />
+
+    <TextView
+        android:id="@+id/tv_image"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="@string/note_type_image"
+        android:textSize="16sp" />
+
+    <View style="@style/divider" />
+
+    <TextView
+        android:id="@+id/tv_video"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="@string/note_type_video"
+        android:textSize="16sp" />
+
+    <View style="@style/divider" />
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textSize="16sp" />
+</LinearLayout>

@@ -3,4 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#ffffff</color>
+
+    <!--分割线的颜色-->
+    <color name="divider_color">#08000000</color>
+
+    <!--字体颜色-->
+    <color name="text_black">#bb000000</color>
+    <color name="text_dark_gray">#88000000</color>
+    <color name="text_gray">#22000000</color>
 </resources>

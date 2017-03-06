@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">android_notepad</string>
+    <string name="note_list_title">我的备忘</string>
+    <string name="add_new_note">+</string>
+    <string name="add_menu_title">选择备忘类型</string>
+    <string name="note_type_text">文本</string>
+    <string name="note_type_image">图文</string>
+    <string name="note_type_video">视频</string>
+    <string name="cancel">取消</string>
+    <string name="add_new_note_title">添加新备忘</string>
 </resources>
