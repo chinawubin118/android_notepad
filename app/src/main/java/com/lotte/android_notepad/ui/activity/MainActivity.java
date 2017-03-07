@@ -1,6 +1,5 @@
-package com.lotte.android_notepad;
+package com.lotte.android_notepad.ui.activity;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -15,6 +14,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.lotte.android_notepad.BaseActivity;
+import com.lotte.android_notepad.R;
+import com.lotte.android_notepad.Utils;
 import com.lotte.android_notepad.adapter.NoteListAdapter;
 import com.lotte.android_notepad.db.MyNoteDBHelper;
 import com.lotte.android_notepad.model.Note;
@@ -76,21 +78,8 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    //插入数据
-    private void insertData() {
-        ContentValues cv = new ContentValues();
-        cv.put(MyNoteDBHelper.CONTENT, "this is the first content");
-        cv.put(MyNoteDBHelper.TIME, Utils.getTimeStr());
-
-        writableDB.insert(MyNoteDBHelper.TABLE_NAME, null, cv);
-    }
-
     //查询出来已经添加的备忘
     private void queryNotes() {
-        ContentValues cv = new ContentValues();
-        cv.put(MyNoteDBHelper.CONTENT, "this is the first content");
-        cv.put(MyNoteDBHelper.TIME, Utils.getTimeStr());
-
         Cursor cursor = writableDB.query(MyNoteDBHelper.TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext()) {
             String content = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.CONTENT));

@@ -1,6 +1,7 @@
 package com.lotte.android_notepad.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.lotte.android_notepad.R;
 import com.lotte.android_notepad.model.Note;
+import com.lotte.android_notepad.ui.activity.NoteDetailActivity;
 
 import java.util.List;
 
@@ -33,9 +35,19 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteLi
 
     @Override
     public void onBindViewHolder(NoteListViewHolder holder, int position) {
-        Note note = noteList.get(position);
+        final Note note = noteList.get(position);
         holder.tvTitle.setText((position + 1 + ".") + note.getTitle());
         holder.tvTime.setText(note.getTime());
+
+        //点击Item的时候执行
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, NoteDetailActivity.class);
+                intent.putExtra("note", note);
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,9 +58,13 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.NoteLi
     class NoteListViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvTitle, tvTime;
+        View itemView;
 
         public NoteListViewHolder(View itemView) {
             super(itemView);
+
+            this.itemView = itemView;
+
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitle);
             tvTime = (TextView) itemView.findViewById(R.id.tvTime);
         }

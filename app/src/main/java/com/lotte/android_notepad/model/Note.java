@@ -1,10 +1,12 @@
 package com.lotte.android_notepad.model;
 
+import java.io.Serializable;
+
 /**
  * Created by wubin on 2017/3/6.
  */
 
-public class Note {
+public class Note implements Serializable {
     private String title;
     private String time;
     private String imagePath;

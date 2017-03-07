@@ -1,4 +1,4 @@
-package com.lotte.android_notepad;
+package com.lotte.android_notepad.ui.activity;
 
 import android.content.ContentValues;
 import android.os.Bundle;
@@ -8,12 +8,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lotte.android_notepad.BaseActivity;
+import com.lotte.android_notepad.R;
+import com.lotte.android_notepad.Utils;
 import com.lotte.android_notepad.db.MyNoteDBHelper;
 
 public class AddNoteActivity extends BaseActivity {
 
     private EditText etContent;//内容
-    private TextView tvDelete, tvSave;//删除,保存
+    private TextView tvCancel, tvSave;//取消,保存
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +28,18 @@ public class AddNoteActivity extends BaseActivity {
 
     private void initViews() {
         etContent = (EditText) findViewById(R.id.etContent);
-        tvDelete = (TextView) findViewById(R.id.tvDelete);
+        tvCancel = (TextView) findViewById(R.id.tvCancel);
         tvSave = (TextView) findViewById(R.id.tvSave);
 
+        tvCancel.setOnClickListener(this);
         tvSave.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tvDelete:
+            case R.id.tvCancel://取消该备忘
+                onBackPressed();
                 break;
             case R.id.tvSave:
                 String content = etContent.getText().toString().trim();
