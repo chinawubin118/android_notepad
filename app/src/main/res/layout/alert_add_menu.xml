@@ -19,27 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="@string/note_type_text"
-        android:textSize="16sp" />
-
-    <View style="@style/divider" />
-
-    <TextView
-        android:id="@+id/tv_image"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:gravity="center"
-        android:text="@string/note_type_image"
-        android:textSize="16sp" />
-
-    <View style="@style/divider" />
-
-    <TextView
-        android:id="@+id/tv_video"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:gravity="center"
-        android:text="@string/note_type_video"
+        android:text="@string/text_add_new_note"
         android:textSize="16sp" />
 
     <View style="@style/divider" />

@@ -20,16 +20,39 @@
             android:textSize="16sp" />
     </android.support.v7.widget.Toolbar>
 
-    <EditText
-        android:id="@+id/etContent"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/llBottom"
-        android:layout_below="@+id/toolbar"
-        android:background="@null"
-        android:gravity="top"
-        android:hint="说说您现在的心情..."
-        android:padding="16dp" />
+        android:layout_below="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <VideoView
+                android:id="@+id/vvContent"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:gravity="top"
+                android:hint="说说您现在的心情..."
+                android:padding="16dp" />
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/llBottom"
@@ -39,26 +62,24 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tvImage"
+            style="@style/add_new_note_menu"
+            android:text="图片" />
+
+        <TextView
+            android:id="@+id/tvVideo"
+            style="@style/add_new_note_menu"
+            android:text="视频" />
+
+        <TextView
             android:id="@+id/tvCancel"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:background="@color/text_gray"
-            android:gravity="center"
-            android:text="取消"
-            android:textColor="@color/white" />
+            style="@style/add_new_note_menu"
+            android:text="取消" />
 
         <TextView
             android:id="@+id/tvSave"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:background="@color/text_gray"
-            android:gravity="center"
-            android:text="保存"
-            android:textColor="@color/white" />
+            style="@style/add_new_note_menu"
+            android:layout_marginRight="16dp"
+            android:text="保存" />
     </LinearLayout>
 </RelativeLayout>

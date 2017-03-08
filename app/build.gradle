@@ -28,4 +28,9 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     compile 'com.android.support:recyclerview-v7:25.2.0'
     testCompile 'junit:junit:4.12'
+
+    //仿微信的ImagePicker
+    compile 'com.lzy.widget:imagepicker:0.3.2'
+    //glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

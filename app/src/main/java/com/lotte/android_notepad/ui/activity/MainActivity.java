@@ -20,6 +20,10 @@ import com.lotte.android_notepad.Utils;
 import com.lotte.android_notepad.adapter.NoteListAdapter;
 import com.lotte.android_notepad.db.MyNoteDBHelper;
 import com.lotte.android_notepad.model.Note;
+import com.lotte.android_notepad.support.GlideImageLoader;
+import com.lotte.android_notepad.support.MyDecoration;
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.view.CropImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +41,25 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initImagePicker();
+
         initViews();
 
         setToolbar();
+    }
 
-//        insertData();
+    private void initImagePicker() {
+        ImagePicker imagePicker = ImagePicker.getInstance();
+        imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
+        imagePicker.setShowCamera(true);  //显示拍照按钮
+        imagePicker.setCrop(true);        //允许裁剪（单选才有效）
+        imagePicker.setSaveRectangle(true); //是否按矩形区域保存
+        imagePicker.setSelectLimit(1);    //选中数量限制
+        imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
+        imagePicker.setFocusWidth(800);   //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setFocusHeight(800);  //裁剪框的高度。单位像素（圆形自动取宽高最小值）
+        imagePicker.setOutPutX(1000);//保存文件的宽度。单位像素
+        imagePicker.setOutPutY(1000);//保存文件的高度。单位像素
     }
 
     @Override
@@ -56,6 +74,8 @@ public class MainActivity extends BaseActivity {
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         rcvNoteList.setLayoutManager(manager);
         rcvNoteList.setAdapter(mAdapter);
+        //添加分隔线
+        rcvNoteList.addItemDecoration(new MyDecoration(this, MyDecoration.VERTICAL_LIST));
     }
 
     private void initViews() {
@@ -84,10 +104,14 @@ public class MainActivity extends BaseActivity {
         while (cursor.moveToNext()) {
             String content = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.CONTENT));
             String time = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.TIME));
+            String imagePath = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.IMAGE_PATH));
+            String videoPath = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.VIDEO_PATH));
 
             Note note = new Note();
             note.setTitle(content);
             note.setTime(time);
+            note.setImagePath(imagePath);
+            note.setVideoPath(videoPath);
             noteList.add(note);
         }
         cursor.close();
@@ -108,9 +132,7 @@ public class MainActivity extends BaseActivity {
         alertDialog.show();
         View view = View.inflate(this, R.layout.alert_add_menu, null);
 
-        TextView tv_text = (TextView) view.findViewById(R.id.tv_text);//文本类型
-        TextView tv_image = (TextView) view.findViewById(R.id.tv_image);//图文类型
-        TextView tv_video = (TextView) view.findViewById(R.id.tv_video);//视频类型
+        TextView tv_text = (TextView) view.findViewById(R.id.tv_text);//添加新备忘
         TextView tv_cancel = (TextView) view.findViewById(R.id.tv_cancel);//取消
 
         tv_text.setOnClickListener(new View.OnClickListener() {
@@ -118,18 +140,6 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddNoteActivity.class);
                 startActivity(intent);
-                alertDialog.dismiss();
-            }
-        });
-        tv_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
-        tv_video.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 alertDialog.dismiss();
             }
         });

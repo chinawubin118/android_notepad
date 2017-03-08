@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/ivPic"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
+        android:layout_toRightOf="@+id/ivPic"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingLeft="10dp"
         android:text="备忘摘要"
         android:textColor="@color/text_dark_gray" />
 
@@ -16,6 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
+        android:layout_toRightOf="@+id/ivPic"
+        android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:text="备忘时间"
         android:textColor="@color/text_dark_gray" />

@@ -10,7 +10,7 @@ public class Note implements Serializable {
     private String title;
     private String time;
     private String imagePath;
-    private String video;
+    private String videoPath;
 
     public String getTitle() {
         return title;
@@ -36,11 +36,11 @@ public class Note implements Serializable {
         this.imagePath = imagePath;
     }
 
-    public String getVideo() {
-        return video;
+    public String getVideoPath() {
+        return videoPath;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
     }
 }
