@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="top"
-                android:hint="说说您现在的心情..."
+                android:hint="@string/add_note_text_hint"
                 android:padding="16dp" />
         </LinearLayout>
     </ScrollView>

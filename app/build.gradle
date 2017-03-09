@@ -33,4 +33,7 @@ dependencies {
     compile 'com.lzy.widget:imagepicker:0.3.2'
     //glide
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //rxjava
+    compile 'io.reactivex:rxjava:1.2.4'
+    compile 'io.reactivex:rxandroid:1.2.1'
 }
