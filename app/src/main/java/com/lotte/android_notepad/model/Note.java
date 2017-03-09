@@ -7,10 +7,21 @@ import java.io.Serializable;
  */
 
 public class Note implements Serializable {
+
+    private int id;
+
     private String title;
     private String time;
     private String imagePath;
     private String videoPath;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

@@ -35,12 +35,15 @@
                 android:id="@+id/ivContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:visibility="gone" />
 
             <VideoView
                 android:id="@+id/vvContent"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:visibility="gone" />
 
             <EditText
@@ -57,8 +60,9 @@
     <LinearLayout
         android:id="@+id/llBottom"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="44dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
         <TextView

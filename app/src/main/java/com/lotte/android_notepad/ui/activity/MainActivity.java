@@ -102,12 +102,15 @@ public class MainActivity extends BaseActivity {
     private void queryNotes() {
         Cursor cursor = writableDB.query(MyNoteDBHelper.TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext()) {
+
+            int id = cursor.getInt(cursor.getColumnIndex(MyNoteDBHelper.ID));
             String content = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.CONTENT));
             String time = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.TIME));
             String imagePath = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.IMAGE_PATH));
             String videoPath = cursor.getString(cursor.getColumnIndex(MyNoteDBHelper.VIDEO_PATH));
 
             Note note = new Note();
+            note.setId(id);
             note.setTitle(content);
             note.setTime(time);
             note.setImagePath(imagePath);
